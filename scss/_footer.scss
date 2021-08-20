@@ -1,0 +1,81 @@
+footer {
+  @include flexed(center, space-between);
+  padding: 2rem 5rem;
+  background-color: transparent;
+  // box-shadow: 0 0 3px black;
+  border-top: 1px solid grey;
+  z-index: 500;
+  .social-icons {
+    @include flexed(center, space-between);
+    width: 300px;
+    margin: 0 0 2rem;
+    .fab {
+      font-size: 3rem;
+      color: grey;
+      transition: all 0.3s;
+    }
+    .fa-facebook:hover {
+      color: blue;
+    }
+    .fa-youtube:hover {
+      color: red;
+    }
+    .fa-twitter:hover {
+      color: rgb(0, 89, 255);
+    }
+    .fa-instagram:hover {
+      color: orangered;
+    }
+    .fa-linkedin:hover {
+      color: rgb(68, 197, 248);
+    }
+  }
+
+  .links {
+    margin: 0 0 2rem;
+    width: 300px;
+    text-align: center;
+    ul {
+      list-style: none;
+      li {
+        a {
+          font-size: 2rem;
+          color: grey;
+          text-decoration: none;
+          transition: all 0.5s;
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  .news-container {
+    width: 300px;
+    margin: 0 0 2rem;
+    @include flexed(center, center);
+    input {
+      border: 1px solid grey;
+      color: grey;
+      font-size: 1.8rem;
+      font-family: $paragraph;
+      padding: 0.5rem;
+      width: 150px;
+      background-color: transparent;
+      &:focus {
+        outline: none;
+        border: 1px solid grey;
+      }
+    }
+    .news-btn {
+      border: none;
+      background-color: $secondary;
+      color: $white;
+      font-family: $paragraph;
+      padding: 0.85rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+  }
+}

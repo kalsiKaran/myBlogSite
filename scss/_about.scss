@@ -1,0 +1,73 @@
+.about-container {
+  width: 100%;
+  margin-bottom: 10rem;
+  @include flexed(start, space-evenly);
+  .about-txt {
+    width: 450px;
+    margin: 5rem 0;
+    color: grey;
+  }
+  img {
+    width: 450px;
+    object-fit: cover;
+    object-position: top;
+    margin: 5rem 0;
+  }
+}
+.worker-container {
+  margin: 2rem 0;
+  @include flexed(center, space-evenly);
+  .img-contain {
+    margin: 0 0 4rem;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    @include flexed(center, center);
+    &::before {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      backdrop-filter: brightness(40%);
+      transform: scale(0);
+      transition: transform 0.4s;
+    }
+    &:hover::before {
+      transform: scale(1);
+    }
+  }
+  .work1,
+  .work2,
+  .work3 {
+    color: white;
+    transform: scale(0);
+    transition: transform 0.4s;
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+  }
+  .img1 {
+    background-image: url("../images/worker1.jpg");
+    &:hover .work1 {
+      transform: scale(1);
+    }
+  }
+  .img2 {
+    background-image: url("../images/worker2.jpg");
+    &:hover .work2 {
+      transform: scale(1);
+    }
+  }
+  .img3 {
+    background-image: url("../images/worker3.jpg");
+    &:hover .work3 {
+      transform: scale(1);
+    }
+  }
+}

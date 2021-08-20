@@ -1,0 +1,55 @@
+// importing google fonts
+
+// fonts
+$heading: "satisfy";
+$paragraph: "Raleway", sans-serif;
+
+// colors
+$black: grey;
+$white: #fff;
+$primary: #47ffa9;
+$secondary: rgb(63, 228, 151);
+
+// mixins
+@mixin flexed($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid $secondary;
+  padding: 0.7rem 1rem;
+  color: $secondary;
+  font-family: $paragraph;
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.5s;
+  z-index: 10;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $secondary;
+    height: 100%;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    z-index: -1;
+    transition: transform 0.5s;
+  }
+  &:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s;
+  }
+  &:hover {
+    color: $white;
+  }
+}

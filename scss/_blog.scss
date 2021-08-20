@@ -1,0 +1,112 @@
+@import "variables";
+
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 1rem;
+  grid-row-gap: 10rem;
+  justify-content: center;
+  .grid-item {
+    height: 400px;
+    width: 350px;
+    min-width: 270px;
+    overflow: hidden;
+    text-align: center;
+    .img-content {
+      position: relative;
+      margin: 0 0 1rem;
+      height: 350px;
+      background-position: 60% 10%;
+      background-size: cover;
+      @include flexed(center, center);
+      border: 1px solid rgba(128, 128, 128, 0.185);
+      &:hover p {
+        opacity: 1;
+      }
+      &:hover a {
+        opacity: 1;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        backdrop-filter: brightness(30%);
+        transition: all 0.3s;
+      }
+      &:hover::before {
+        width: 100%;
+      }
+      p,
+      a {
+        opacity: 0;
+        color: white;
+        z-index: 5;
+        letter-spacing: 2px;
+        transition: all 0.5s;
+      }
+    }
+
+    // blog images
+    .img1 {
+      background-image: url("../images/1.jpg");
+    }
+    .img2 {
+      background-image: url("../images/2.jpg");
+    }
+    .img3 {
+      background-image: url("../images/3.jpg");
+    }
+    .img4 {
+      background-image: url("../images/4.jpg");
+    }
+    .img5 {
+      background-image: url("../images/5.jpg");
+    }
+    .img6 {
+      background-image: url("../images/6.jpg");
+    }
+    .img7 {
+      background-image: url("../images/7.jpg");
+    }
+    .img8 {
+      background-image: url("../images/8.jpg");
+    }
+    .img9 {
+      background-image: url("../images/9.jpg");
+    }
+    .img10 {
+      background-image: url("../images/10.jpg");
+    }
+    .img11 {
+      background-image: url("../images/11.jpg");
+    }
+    .img12 {
+      background-image: url("../images/12.jpg");
+    }
+    // blog images end
+  }
+}
+.btn-read {
+  display: block;
+  width: 20rem;
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .grid-container {
+    .grid-item {
+      width: 270px;
+    }
+  }
+}

@@ -1,0 +1,151 @@
+@import "variables";
+
+header {
+  z-index: 1000;
+  height: 100vh;
+  width: 100%;
+  padding: 0 5rem;
+  overflow: hidden;
+  background: linear-gradient(rgba(0, 0, 0, 0.459), rgba(0, 0, 0, 0.466)),
+    url("../images/main-head.jpg");
+  background-position: center;
+  background-size: cover;
+  @include flexed(center, center);
+
+  .fas {
+    font-size: 2rem;
+    color: white;
+    display: none;
+    cursor: pointer;
+  }
+  .brand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    perspective: 300px;
+    transform: translate(-50%, -40%);
+    letter-spacing: 2px;
+    font-size: 10vw;
+    color: $white;
+    font-family: $heading;
+    -webkit-text-stroke: 1px $primary;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.6s;
+
+    .letter {
+      display: inline-block;
+    }
+  }
+  .navigation {
+    opacity: 0;
+    ul {
+      @include flexed(center, space-between);
+      width: 500px;
+      list-style-type: none;
+      li {
+        a {
+          position: relative;
+          padding: 1rem 0;
+          color: $white;
+          text-decoration: none;
+          font-size: 1.8rem;
+          font-family: $paragraph;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          position: relative;
+          transition: all 0.3s;
+          &:hover {
+            color: $primary;
+          }
+          &::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-bottom: 2px solid $primary;
+            transform: scaleX(0);
+            transition: all 0.6s;
+          }
+          &:hover::before {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+// on scroll navigation
+.stick {
+  position: fixed;
+  top: 0;
+  height: 10vh;
+  transition: all 0.6s;
+  @include flexed(center, space-between);
+  box-shadow: 0 0 10px black;
+  .brand {
+    font-size: 3rem;
+    position: relative;
+    top: 25px;
+    left: 5rem;
+    transform: translate(-50%, -50%);
+    text-shadow: 0;
+    transition: all 0.6s;
+  }
+  .navigation {
+    opacity: 1;
+  }
+}
+.nav-dark {
+  background-color: transparent;
+}
+// for mobile responsive
+@media screen and (max-width: 900px) {
+  header {
+    padding: 0 2rem;
+  }
+  .stick {
+    .fas {
+      display: block;
+    }
+    .fa-align-right {
+      z-index: 1000;
+      font-size: 3rem;
+      color: white;
+    }
+    .navigation {
+      position: fixed;
+      display: block;
+      top: 10vh;
+      right: -400px;
+      z-index: 1000;
+      width: 40%;
+      min-height: 100%;
+      min-width: 280px;
+      border-left: 1px solid grey;
+      background-color: white;
+      box-shadow: 0 0 20px black;
+      transition: all 1s;
+      ul {
+        @include flexed(center, space-around);
+        flex-direction: column;
+        height: 50vh;
+        width: 100%;
+        li {
+          a {
+            color: grey;
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+      }
+    }
+    .nav-toggle {
+      right: 0;
+    }
+  }
+}
